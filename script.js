@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-   
+    // Menú responsive
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
     
@@ -7,17 +7,28 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.toggle("active");
     });
 
-
+    // Validación de formulario en tiempo real
     const formulario = document.getElementById("formulario");
+    const nombre = document.getElementById("nombre");
+    const email = document.getElementById("email");
+    const mensaje = document.getElementById("mensaje");
     const respuesta = document.getElementById("respuesta");
+    
+    function validarInput(input) {
+        if (input.value.trim() === "") {
+            input.classList.add("error");
+        } else {
+            input.classList.remove("error");
+        }
+    }
+    
+    nombre.addEventListener("input", () => validarInput(nombre));
+    email.addEventListener("input", () => validarInput(email));
+    mensaje.addEventListener("input", () => validarInput(mensaje));
     
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
-        const nombre = document.getElementById("nombre").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const mensaje = document.getElementById("mensaje").value.trim();
-        
-        if (nombre === "" || email === "" || mensaje === "") {
+        if (nombre.value.trim() === "" || email.value.trim() === "" || mensaje.value.trim() === "") {
             respuesta.textContent = "Todos los campos son obligatorios.";
             respuesta.style.color = "red";
         } else {
@@ -27,18 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    
+    // Animaciones al hacer scroll
     const sections = document.querySelectorAll(".seccion");
     
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
+    function checkScroll() {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < window.innerHeight * 0.75) {
+                section.classList.add("visible");
             }
         });
-    }, { threshold: 0.3 });
+    }
     
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    window.addEventListener("scroll", checkScroll);
+    checkScroll();
 });
