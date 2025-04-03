@@ -7,7 +7,7 @@ body {
     color: #333;
 }
 
-/* Estilos del encabezado */
+
 header {
     background: #222;
     padding: 15px 0;
@@ -91,7 +91,7 @@ nav {
     background: #008ba3;
 }
 
-/* Sección Proyectos */
+
 .seccion {
     padding: 80px 20px;
     text-align: center;
@@ -122,7 +122,7 @@ nav {
     border-radius: 10px;
 }
 
-/* Formulario de Contacto */
+
 form {
     max-width: 400px;
     margin: auto;
@@ -137,7 +137,7 @@ form input, form textarea {
     border-radius: 5px;
 }
 
-/* Footer */
+
 footer {
     background: #222;
     color: white;
