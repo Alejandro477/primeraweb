@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Menú responsive
+   
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
     
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.toggle("active");
     });
 
-    // Formulario de contacto con validación
+
     const formulario = document.getElementById("formulario");
     const respuesta = document.getElementById("respuesta");
     
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Animaciones de scroll
+    
     const sections = document.querySelectorAll(".seccion");
     
     const observer = new IntersectionObserver(entries => {
